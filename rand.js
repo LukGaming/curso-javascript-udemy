@@ -1,23 +1,37 @@
 function randNumberNotRepeted(quantity, limit) {
-    if(quantity > limit){
-        return "Quantidade Maior que o Limite";
+    //Primeiramente tentaremos converter string caso for numero para number
+    quantity = parseInt(quantity)
+    limit = parseInt(limit)
+    if (typeof quantity != 'number' || typeof limit != 'number') {
+        throw Error("Somente números poderão ser usados nesta funcao");
+
     }
-    var numbers = [];
-    while (numbers.length < quantity) {
-        let sorteio = randomicNumber(limit);
-        if (numbers.indexOf == -1) {
-            
-        }
-        else{
-            numbers.push(sorteio)
-        }
+    else if (typeof quantity == NaN || typeof limit == NaN) {
+        throw Error("Somente números poderão ser usados nesta funcao");
+
     }
-    return numbers;
-    
+    else if (quantity > limit) {
+        throw Error("Quantidade Maior que o Limite");
+    }
+    else {
+        var numbers = [];
+        while (numbers.length < quantity) {
+            let sorteio = randomicNumber(limit);
+            if (numbers.indexOf == -1) {
+
+            }
+            else {
+                numbers.push(sorteio)
+            }
+        }
+        return numbers;
+    }
+
+
 }
 function randomicNumber(LimitNumber) {
     return parseInt(Math.random() * LimitNumber);
 }
 
-const numbers = randNumberNotRepeted(50, 10000)
+const numbers = randNumberNotRepeted("a210a", "10000")
 console.log(numbers)
