@@ -1,12 +1,11 @@
 function randNumberNotRepeted(quantity, limit) {
-    //Primeiramente tentaremos converter string caso for numero para number
-    quantity = parseInt(quantity)
-    limit = parseInt(limit)
-    if (typeof quantity != 'number' || typeof limit != 'number') {
+    
+
+    if (typeof quantity !== 'number' || typeof limit !== 'number') {
         throw Error("Somente números poderão ser usados nesta funcao");
 
     }
-    else if (typeof quantity == NaN || typeof limit == NaN) {
+    else if (typeof quantity === NaN || typeof limit === NaN) {
         throw Error("Somente números poderão ser usados nesta funcao");
 
     }
@@ -33,5 +32,5 @@ function randomicNumber(LimitNumber) {
     return parseInt(Math.random() * LimitNumber);
 }
 
-const numbers = randNumberNotRepeted("a210a", "10000")
+const numbers = randNumberNotRepeted(10, 100)
 console.log(numbers)
