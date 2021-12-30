@@ -7,7 +7,7 @@ function calculaMedia() {
     var soma = 0;
     for (let i = 0; i < arguments.length; i++) {
         if (typeof arguments[i] != 'number') {
-            return "Está função recebe somente números";
+            throw Error( "Esta função recebe somente números");
         }
         else{
             soma += arguments[i];
@@ -16,4 +16,4 @@ function calculaMedia() {
     return soma / arguments.length;
     
 }
-console.log(calculaMedia(2, 3, 1))
+console.log(calculaMedia(2, 3, 1,49,1231321,2151))
