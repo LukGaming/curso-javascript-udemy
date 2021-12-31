@@ -7,36 +7,33 @@ function calculaImc(peso, altura) {
             throw Error("Essa função espera somente números");
         }
     }
-    return (peso / altura).toFixed(1);
+    return (peso / (altura * altura)).toFixed(1);
 }
 function classificaImc(imc) {
-    
-    switch (imc) {
-        case 35.5:
-            return "35"
-            break;
-        // case imc < 18.5:
-        //     return "MENOR QUE 18,5 , MAGREZA";
-        //     break;
-        // case imc >= 18.5 && imc <= 24.9:
-        //     return "ENTRE 18,5 E 24,9, NORMAL";
-        //     break;
-        // case imc >= 25 && imc <= 29.9:
-        //     return "ENTRE 25 E 24,9 , SOBREPESO, OBESIDADE GRAU 1";
-        //     break;
-        // case imc >= 30 , imc <= 39.9:
-        //     console.log("aqui estamos");
-        //     return "ENTRE 30 E 39,9 , OBESIDADE,  OBESIDADE GRAU 2"
-        //     break;
-        //     case imc >= 30 && imc <= 39.9:
-        //     return "ENTRE 30 E 39,9 , OBESIDADE, OBESIDADE GRAU 3"
-        //     break;
-        //     case imc > 40:
-        //     return "OBESIDADE GRAVE"
-        //     break;
-        
+
+    if (imc <= 18.5) {
+        return "MENOR QUE 18,5 , MAGREZA";
+
+    } else if (imc <= 24) {
+
+        return "ENTRE 18,5 E 24,9, NORMAL";
+
+    } else if (imc <= 29.9) {
+        return "ENTRE 25 E 24,9 , SOBREPESO, OBESIDADE GRAU 1";
+
+    } else if (imc <= 39.9) {
+        console.log("aqui estamos");
+        return "ENTRE 30 E 39,9 , OBESIDADE,  OBESIDADE GRAU 2"
+
+    } else if (imc <= 39.9) {
+        return "ENTRE 30 E 39,9 , OBESIDADE, OBESIDADE GRAU 3"
+
+    } else {
+        return "OBESIDADE GRAVE"
+
+
     }
 }
-var imc = calculaImc(65,1.83)
+var imc = calculaImc(65, 1.83)
 console.log(imc)
 console.log(classificaImc(imc));
